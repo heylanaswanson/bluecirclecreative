@@ -30,7 +30,7 @@
         <meta name="twitter:image"
             content="https://www.bluecirclecreative.com/og-image.jpg" />
 
-        <!-- Structured Data: LocalBusiness + Product -->
+        <!-- Structured Data -->
         <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,33 +45,23 @@
       },
       {
         "@type": "ItemList",
-        "@id": "https://www.bluecirclecreative.com/#kits",
         "name": "Real Estate Brand Kits",
-        "description": "Complete brand kit packages for real estate agents",
         "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Logo & Mark Kit",
-            "description": "A cohesive identity system with primary logo, submark, and favicon — all sized and ready to use."
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Social Media Templates",
-            "description": "Instagram posts, stories, and carousels designed for listings, market stats, and personal branding."
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Print-Ready Files",
-            "description": "Business cards, postcards, and listing presentations that look like you hired a design firm."
-          }
+          { "@type": "ListItem", "position": 1, "name": "Logo & Mark Kit" },
+          { "@type": "ListItem", "position": 2, "name": "Social Media Templates" },
+          { "@type": "ListItem", "position": 3, "name": "Print-Ready Files" }
         ]
       }
     ]
   }
   </script>
+
+        <!-- Bootstrap 5 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -81,416 +71,450 @@
             rel="stylesheet" />
 
         <style>
-    /* ── RESET ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --brand: #93B3B8;
-      --navy: #173B63;
-      --bg: #F7F3EE;
-      --peach: #E8C8B9;
-      --ink: #18212B;
-      --muted: #6a7280;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
+      --bcc-brand:  #93B3B8;
+      --bcc-navy:   #173B63;
+      --bcc-bg:     #F7F3EE;
+      --bcc-peach:  #E8C8B9;
+      --bcc-ink:    #18212B;
+      --bcc-muted:  #6a7280;
+      --bcc-serif:  'Playfair Display', Georgia, serif;
+      --bcc-sans:   'DM Sans', sans-serif;
     }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 300; -webkit-font-smoothing: antialiased; line-height: 1.6; }
 
-    /* ── ACCESSIBILITY ── */
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bcc-bg);
+      color: var(--bcc-ink);
+      font-family: var(--bcc-sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SKIP LINK ── */
     .skip-link {
-      position: absolute; top: -100%; left: 24px;
-      background: var(--brand); color: var(--navy);
-      padding: 12px 20px; border-radius: 0 0 4px 4px;
-      font-size: 13px; font-weight: 400; letter-spacing: 0.05em;
-      text-decoration: none; z-index: 9999;
-      transition: top 0.2s;
+      position: absolute; top: -100%; left: 1.5rem;
+      background: var(--bcc-brand); color: var(--bcc-navy);
+      padding: .75rem 1.25rem; border-radius: 0 0 4px 4px;
+      font-size: .8125rem; text-decoration: none; z-index: 9999;
+      transition: top .2s;
     }
     .skip-link:focus { top: 0; }
 
-    /* Focus styles — visible on keyboard nav, invisible on mouse */
-    :focus-visible {
-      outline: 2px solid var(--brand);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
+    /* ── FOCUS ── */
+    :focus-visible { outline: 2px solid var(--bcc-brand); outline-offset: 3px; border-radius: 2px; }
     :focus:not(:focus-visible) { outline: none; }
 
-    /* ── NAV ── */
-    header { background: var(--navy); }
-    nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 24px 60px; max-width: 1400px; margin: 0 auto;
+    /* -- LOGO --*/
+    .bcc-logo {margin-left: 1rem;}
+    /* ── NAVBAR ── */
+    .navbar { background-color: var(--bcc-navy) !important; padding-top: 1.125rem; padding-bottom: 1.125rem; }
+    .navbar-nav .nav-link {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.55) !important; transition: color .2s; padding: .5rem 1rem;
     }
-    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo-circle {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--brand); flex-shrink: 0;
-      aria-hidden: true;
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus { color: #fff !important; }
+    .navbar-toggler { border-color: rgba(147,179,184,.4); }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28147,179,184,0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
-    .nav-wordmark { font-family: var(--serif); font-size: 17px; color: #fff; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s;
+    .btn-bcc-etsy {
+      font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+      background: var(--bcc-brand); color: var(--bcc-navy);
+      padding: .5625rem 1.125rem; border-radius: 2px; border: none;
+      text-decoration: none; font-weight: 400; transition: opacity .2s; white-space: nowrap; margin-right: 1rem;
     }
-    .nav-links a:hover { color: #fff; }
-    .nav-cta {
-      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--navy); background: var(--brand);
-      padding: 9px 18px; border-radius: 2px; text-decoration: none;
-      transition: opacity 0.2s; font-weight: 400;
-    }
-    .nav-cta:hover { opacity: 0.85; }
+    .btn-bcc-etsy:hover { opacity: .85; color: var(--bcc-navy); }
 
     /* ── HERO ── */
-    .hero {
-      background: var(--navy); position: relative; overflow: hidden;
-      padding: 80px 60px 88px;
+    .bcc-hero {
+      background-color: var(--bcc-navy);
+      position: relative; overflow: hidden;
+      padding: 5rem 0 5.5rem;
     }
-    .hero-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; gap: 40px;
-      max-width: 1400px; margin: 0 auto;
-      position: relative; z-index: 1;
-    }
-    .hero-circles {
+    .bcc-hero-circles {
       position: absolute; right: -80px; top: 50%;
       transform: translateY(-50%);
-      width: 480px; height: 480px;
-      pointer-events: none; aria-hidden: true;
+      width: 480px; height: 480px; pointer-events: none;
     }
-    .hc-ring { position: absolute; border-radius: 50%; border: 0.5px solid rgba(147,179,184,0.25); width: 460px; height: 460px; top: 10px; left: 10px; }
-    .hc-1 { position: absolute; border-radius: 50%; background: var(--brand); opacity: 0.12; width: 400px; height: 400px; top: 40px; left: 40px; }
-    .hc-2 { position: absolute; border-radius: 50%; background: var(--brand); opacity: 0.22; width: 290px; height: 290px; top: 95px; left: 95px; }
-    .hc-3 { position: absolute; border-radius: 50%; background: var(--brand); opacity: 0.7; width: 170px; height: 170px; top: 155px; left: 155px; }
+    .hc-ring { position: absolute; border-radius: 50%; border: .5px solid rgba(147,179,184,.25); width: 460px; height: 460px; top: 10px; left: 10px; }
+    .hc-1    { position: absolute; border-radius: 50%; background: var(--bcc-brand); opacity: .12; width: 400px; height: 400px; top: 40px; left: 40px; }
+    .hc-2    { position: absolute; border-radius: 50%; background: var(--bcc-brand); opacity: .22; width: 290px; height: 290px; top: 95px; left: 95px; }
+    .hc-3    { position: absolute; border-radius: 50%; background: var(--bcc-brand); opacity: .7;  width: 170px; height: 170px; top: 155px; left: 155px; }
 
-    .hero-eyebrow {
-      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--brand); margin-bottom: 24px;
-      display: flex; align-items: center; gap: 10px;
+    .bcc-eyebrow {
+      font-size: .6875rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--bcc-brand); margin-bottom: 1.5rem; margin-left: 1rem;
+      display: flex; align-items: center; gap: .625rem;
     }
-    .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 0.5px; background: var(--brand); }
-    h1 {
-      font-family: var(--serif); font-size: clamp(40px, 5vw, 66px);
-      font-weight: 400; line-height: 1.06; letter-spacing: -0.02em;
-      color: #fff; margin-bottom: 24px;
-    }
-    h1 em { font-style: italic; color: var(--brand); }
-    .hero-sub {
-      font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.6);
-      max-width: 380px; margin-bottom: 40px; font-weight: 300;
-    }
-    .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-    .btn-primary {
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      background: var(--brand); color: var(--navy);
-      padding: 14px 30px; border-radius: 2px; text-decoration: none;
-      font-weight: 400; transition: opacity 0.2s; display: inline-block;
-    }
-    .btn-primary:hover { opacity: 0.85; }
-    .btn-ghost {
-      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: rgba(255,255,255,0.55); text-decoration: none;
-      border-bottom: 0.5px solid rgba(255,255,255,0.3);
-      padding-bottom: 2px; transition: color 0.2s;
-    }
-    .btn-ghost:hover { color: #fff; }
+    .bcc-eyebrow::before { content: ''; display: block; width: 24px; height: .5px; background: var(--bcc-brand); }
 
-    /* ── SECTIONS ── */
-    .section-inner { max-width: 1400px; margin: 0 auto; }
+    .bcc-h1 {
+      font-family: var(--bcc-serif);
+      font-size: clamp(2.5rem, 5vw, 4.125rem);
+      font-weight: 400; line-height: 1.06; letter-spacing: -.02em;
+      color: #fff; margin-bottom: 1.5rem; margin-left: 1rem;
+    }
+    .bcc-h1 em { font-style: italic; color: var(--bcc-brand); }
+
+    .bcc-hero-sub {
+      font-size: .9375rem; line-height: 1.8;
+      color: rgba(255,255,255,.6); font-weight: 300;
+      margin-bottom: 2.5rem; margin-left: 1rem;
+    }
+
+    .btn-bcc-primary {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      background: var(--bcc-brand); color: var(--bcc-navy);
+      padding: .875rem 1.875rem; border-radius: 2px; border: none;
+      text-decoration: none; font-weight: 400; transition: opacity .2s; display: inline-block; margin-left: 1rem;
+    }
+    .btn-bcc-primary:hover { opacity: .85; color: var(--bcc-navy); }
+
+    .btn-bcc-ghost {
+      font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.55); text-decoration: none;
+      border-bottom: .5px solid rgba(255,255,255,.3);
+      padding-bottom: 2px; transition: color .2s;
+      background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .btn-bcc-ghost:hover { color: #fff; }
+
+    /* ── SECTION LABEL ── */
+    .bcc-section-label {
+      font-size: .7875rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--bcc-brand); margin-bottom: 3.25rem;
+      display: flex; align-items: center; gap: .625rem;
+    }
+    .bcc-section-label::before { content: ''; display: block; width: 24px; height: .5px; background: var(--bcc-brand); }
 
     /* ── KITS ── */
-    .section-kits { padding: 88px 60px; background: var(--bg); }
-    .section-label {
-      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--brand); margin-bottom: 52px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .section-label::before { content: ''; display: block; width: 24px; height: 0.5px; background: var(--brand); }
-    .kits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .kit-card { background: #fff; padding: 40px 32px; transition: background 0.2s; }
-    .kit-card:hover { background: var(--bg); }
-    .kit-num { font-family: var(--serif); font-size: 11px; color: var(--brand); letter-spacing: 0.15em; margin-bottom: 20px; display: block; }
-    h2.kit-title { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--ink); margin-bottom: 12px; }
-    .kit-desc { font-size: 14px; line-height: 1.8; color: var(--muted); font-weight: 300; }
+    .bcc-kits { padding: 5.5rem 0; background: var(--bcc-bg); }
+    .bcc-kit-card { background: #fff; padding: 2.5rem 2rem; transition: background .2s; height: 100%; }
+    .bcc-kit-card:hover { background: var(--bcc-bg); }
+    .bcc-kit-num { font-family: var(--bcc-serif); font-size: .6875rem; color: var(--bcc-brand); letter-spacing: .15em; margin-bottom: 1.25rem; display: block; }
+    .bcc-kit-title { font-family: var(--bcc-serif); font-size: 1.3125rem; font-weight: 400; color: var(--bcc-ink); margin-bottom: .75rem; }
+    .bcc-kit-desc { font-size: .875rem; line-height: 1.8; color: var(--bcc-muted); font-weight: 300; margin: 0; }
+    .bcc-kits .row > [class*="col"] + [class*="col"] .bcc-kit-card { border-left: 2px solid var(--bcc-bg); }
+    @media (max-width: 991px) { .bcc-kits .row > [class*="col"] + [class*="col"] .bcc-kit-card { border-left: none; margin-top: 2px; } }
 
     /* ── PROOF ── */
-    .section-proof { padding: 80px 60px; background: var(--navy); }
-    .proof-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; gap: 60px;
-      border-top: 0.5px solid rgba(147,179,184,0.15);
-      border-bottom: 0.5px solid rgba(147,179,184,0.15);
-      padding: 60px 0;
+    .bcc-proof { padding: 5rem 0; background: var(--bcc-navy); }
+    .bcc-proof-inner { border-top: .5px solid rgba(147,179,184,.15); border-bottom: .5px solid rgba(147,179,184,.15); padding: 3.75rem; }
+    .bcc-blockquote { font-family: var(--bcc-serif); font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-style: italic; color: #fff; line-height: 1.45; margin: 0; }
+    .bcc-blockquote::before { content: '\201C'; color: var(--bcc-peach); font-size: 1.4em; line-height: 0; vertical-align: -.3em; margin-right: 3px; }
+    .bcc-proof-attr { font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 1.25rem; }
+    .bcc-proof-stat { padding-left: 3.75rem; border-left: .5px solid rgba(147,179,184,.2); }
+    .bcc-stat-num { font-family: var(--bcc-serif); font-size: clamp(4rem, 8vw, 6rem); font-weight: 400; color: var(--bcc-peach); line-height: 1; letter-spacing: -.02em; }
+    .bcc-stat-label { font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: .75rem; }
+    @media (max-width: 991px) {
+      .bcc-proof-stat { padding-left: 0; border-left: none; border-top: .5px solid rgba(147,179,184,.2); padding-top: 2.5rem; margin-top: 2rem; }
     }
-    blockquote { font-family: var(--serif); font-size: clamp(20px, 2.2vw, 28px); font-style: italic; color: #fff; line-height: 1.45; }
-    blockquote::before { content: '\201C'; color: var(--peach); font-size: 1.4em; line-height: 0; vertical-align: -0.3em; margin-right: 3px; }
-    .proof-attr { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 20px; }
-    .proof-stat { display: flex; flex-direction: column; align-items: flex-start; padding-left: 60px; border-left: 0.5px solid rgba(147,179,184,0.2); }
-    .proof-stat-num { font-family: var(--serif); font-size: clamp(64px, 8vw, 96px); font-weight: 400; color: var(--peach); line-height: 1; letter-spacing: -0.02em; }
-    .proof-stat-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 12px; }
 
     /* ── HOW ── */
-    .section-how {
-      padding: 88px 60px;
-      background: color-mix(in srgb, var(--brand) 8%, var(--bg));
-      border-top: 0.5px solid rgba(147,179,184,0.2);
+    .bcc-how { padding: 5.5rem; background: color-mix(in srgb, var(--bcc-brand) 8%, var(--bcc-bg)); border-top: .5px solid rgba(147,179,184,.2); }
+    .bcc-how-heading { font-family: var(--bcc-serif); font-size: clamp(1.625rem, 2.8vw, 2.375rem); font-weight: 400; line-height: 1.15; color: var(--bcc-ink); position: sticky; top: 2.5rem; }
+    .bcc-how-heading em { font-style: italic; color: var(--bcc-navy); }
+    .bcc-step { display: grid; grid-template-columns: 100px 1fr; gap: 1.5rem; align-items: start; padding: 2.5rem 0; border-bottom: .5px solid rgba(23,59,99,.1); }
+    .bcc-step:first-child { padding-top: 0; }
+    .bcc-step-num { font-family: var(--bcc-serif); font-size: 5.5rem; line-height: .85; font-weight: 400; color: #fff; opacity: .5; letter-spacing: -.04em; user-select: none; }
+    .bcc-step-title { font-family: var(--bcc-serif); font-size: 1.25rem; font-weight: 400; color: var(--bcc-ink); margin-bottom: .625rem; padding-top: .5rem; }
+    .bcc-step-desc { font-size: .875rem; line-height: 1.8; color: var(--bcc-muted); font-weight: 300; margin: 0; }
+    @media (max-width: 991px) {
+      .bcc-how-heading { position: static; margin-bottom: 2rem; }
+      .bcc-step { grid-template-columns: 72px 1fr; }
+      .bcc-step-num { font-size: 4rem; }
     }
-    .how-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
-    h2.how-heading { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 38px); font-weight: 400; line-height: 1.15; color: var(--ink); position: sticky; top: 40px; }
-    h2.how-heading em { font-style: italic; color: var(--navy); }
-    .steps { list-style: none; }
-    .step { display: grid; grid-template-columns: 100px 1fr; gap: 24px; align-items: start; padding: 40px 0; border-bottom: 0.5px solid rgba(23,59,99,0.1); }
-    .step:first-child { padding-top: 0; }
-    .step-num { font-family: var(--serif); font-size: 88px; line-height: 0.85; font-weight: 400; color: #fff; opacity: 0.5; letter-spacing: -0.04em; user-select: none; aria-hidden: true; }
-    h3.step-title { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 10px; padding-top: 8px; }
-    .step-desc { font-size: 14px; line-height: 1.8; color: var(--muted); font-weight: 300; }
 
     /* ── CTA ── */
-    .section-cta { padding: 72px 60px; background: var(--brand); }
-    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; max-width: 1400px; margin: 0 auto; }
-    h2.cta-text { font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); font-weight: 400; color: #fff; line-height: 1.2; }
-    h2.cta-text em { font-style: italic; }
-    .btn-navy {
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      background: var(--navy); color: #fff;
-      padding: 14px 32px; border-radius: 2px; text-decoration: none;
-      white-space: nowrap; flex-shrink: 0; transition: opacity 0.2s; display: inline-block;
+    .bcc-cta { padding: 5.5rem; background: var(--bcc-brand); }
+    .bcc-cta-text { font-family: var(--bcc-serif); font-size: clamp(1.375rem, 3vw, 2.25rem); font-weight: 400; color: #fff; line-height: 1.2; margin: 0; }
+    .bcc-cta-text em { font-style: italic; }
+    .btn-bcc-navy {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      background: var(--bcc-navy); color: #fff;
+      padding: .875rem 2rem; border-radius: 2px; border: none;
+      text-decoration: none; white-space: nowrap; transition: opacity .2s; display: inline-block;
     }
-    .btn-navy:hover { opacity: 0.85; }
+    .btn-bcc-navy:hover { opacity: .85; color: #fff; }
 
     /* ── FOOTER ── */
-    footer { padding: 40px 60px; background: var(--navy); }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1400px; margin: 0 auto; }
-    .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .footer-circle { width: 20px; height: 20px; border-radius: 50%; background: var(--brand); }
-    .footer-wordmark { font-family: var(--serif); font-size: 14px; color: rgba(255,255,255,0.5); }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
-    .footer-etsy { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); text-decoration: none; display: flex; align-items: center; gap: 6px; }
-    .footer-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--peach); display: inline-block; flex-shrink: 0; }
+    .bcc-footer { padding: 2.5rem 0; background: var(--bcc-navy); border-top: .5px solid rgba(147,179,184,.15); }
+    .bcc-footer-copy { font-size: .75rem; color: rgba(255,255,255,.35); margin: 0; }
+    .bcc-footer-etsy { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--bcc-brand); text-decoration: none; display: inline-flex; align-items: center; gap: .375rem; }
+    .bcc-footer-etsy:hover { color: #fff; }
+    .bcc-footer-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--bcc-peach); display: inline-block; flex-shrink: 0; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 20px 24px; }
-      .nav-links { display: none; }
-
-      .hero { padding: 48px 24px 56px; }
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-circles { display: none; }
-      h1 { font-size: clamp(36px, 10vw, 52px); }
-
-      .section-kits, .section-proof, .section-how, .section-cta { padding: 56px 24px; }
-      .kits-grid { grid-template-columns: 1fr; }
-
-      .proof-inner { grid-template-columns: 1fr; gap: 40px; padding: 40px 0; }
-      .proof-stat { padding-left: 0; border-left: none; border-top: 0.5px solid rgba(147,179,184,0.2); padding-top: 40px; }
-
-      .how-inner { grid-template-columns: 1fr; gap: 32px; }
-      h2.how-heading { position: static; }
-      .step { grid-template-columns: 72px 1fr; }
-      .step-num { font-size: 64px; }
-
-      .cta-inner { flex-direction: column; align-items: flex-start; }
-      .btn-navy { width: 100%; text-align: center; }
-
-      footer { padding: 32px 24px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    @media (max-width: 767px) {
+      .bcc-hero-circles { display: none; }
+      .bcc-cta .d-flex { flex-direction: column; align-items: flex-start !important; }
+      .btn-bcc-navy { width: 100%; text-align: center; }
     }
   </style>
     </head>
     <body>
 
-        <!-- Skip to main content -->
         <a class="skip-link" href="#main-content">Skip to main content</a>
 
-        <!-- HEADER / NAV -->
+        <!-- NAVBAR -->
         <header role="banner">
-            <nav aria-label="Main navigation">
-                <a class="nav-logo" href="/"
-                    aria-label="Blue Circle Creative — home">
-                    <div class="nav-logo-circle" aria-hidden="true"></div>
-                    <span class="nav-wordmark">Creative</span>
-                </a>
-                <ul class="nav-links" role="list">
-                    <li><a href="#kits">Shop</a></li>
-                    <li><a href="#how">Kits</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-                <a class="nav-cta"
-                    href="https://www.etsy.com/shop/bluecirclecreative"
-                    target="_blank" rel="noopener noreferrer"
-                    aria-label="Visit Blue Circle Creative on Etsy (opens in new tab)">Visit
-                    Etsy Shop</a>
+            <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+                <div class="container-xl">
+
+                    <a class="navbar-brand bcc-logo" href="/"
+                        aria-label="Blue Circle Creative — home">
+                        <img src="assets/images/BCC-logo.svg"
+                            alt="Blue Circle Creative" />
+                    </a>
+
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#bccNav"
+                        aria-controls="bccNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="bccNav">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#kits">Shop</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#how">How it works</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="#about">About</a></li>
+                        </ul>
+                        <a class="btn-bcc-etsy ms-lg-3 mt-3 mt-lg-0"
+                            href="https://www.etsy.com/shop/bluecirclecreative"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Visit Blue Circle Creative on Etsy (opens in new tab)">
+                            Visit Etsy Shop
+                        </a>
+                    </div>
+
+                </div>
             </nav>
         </header>
 
-        <!-- MAIN -->
         <main id="main-content">
 
             <!-- HERO -->
-            <section class="hero" aria-labelledby="hero-heading">
-                <div class="hero-circles" aria-hidden="true">
+            <section class="bcc-hero" aria-labelledby="hero-heading">
+                <div class="bcc-hero-circles" aria-hidden="true">
                     <div class="hc-ring"></div>
                     <div class="hc-1"></div>
                     <div class="hc-2"></div>
                     <div class="hc-3"></div>
                 </div>
-                <div class="hero-inner">
-                    <div>
-                        <p class="hero-eyebrow">For real estate agents</p>
-                        <h1 id="hero-heading">Your
-                            brand,<br><em>finally</em><br>done right.</h1>
-                        <p class="hero-sub">Canva templates designed for agents
-                            who know their market deserves better than generic.
-                            Plug in your colors, your photo, your name — and
-                            look like you mean it.</p>
-                        <div class="hero-actions">
-                            <a class="btn-primary" href="#kits">Shop the
-                                kits</a>
-                            <a class="btn-ghost" href="#how">See what's
-                                inside</a>
+                <div class="container-xl position-relative" style="z-index:1">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="bcc-eyebrow">For real estate agents</p>
+                            <h1 class="bcc-h1" id="hero-heading">
+                                Your brand,<br><em>finally</em><br>done right.
+                            </h1>
+                            <p class="bcc-hero-sub">
+                                Canva templates designed for agents who know
+                                their market deserves better than generic.
+                                Plug in your colors, your photo, your name — and
+                                look like you mean it.
+                            </p>
+                            <div
+                                class="d-flex align-items-center gap-4 flex-wrap">
+                                <a class="btn-bcc-primary" href="#kits">Shop the
+                                    kits</a>
+                                <a class="btn-bcc-ghost" href="#how">See what's
+                                    inside</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- KITS -->
-            <section class="section-kits" id="kits"
-                aria-labelledby="kits-heading">
-                <div class="section-inner">
-                    <p class="section-label" aria-hidden="true">What's in a
+            <section class="bcc-kits" id="kits" aria-labelledby="kits-heading">
+                <div class="container-xl">
+                    <p class="bcc-section-label" aria-hidden="true">What's in a
                         kit</p>
-                    <ul class="kits-grid" role="list"
+                    <div class="row g-0" role="list"
                         aria-label="Brand kit contents">
-                        <li class="kit-card">
-                            <span class="kit-num" aria-hidden="true">01</span>
-                            <h2 class="kit-title">Logo &amp; mark</h2>
-                            <p class="kit-desc">A cohesive identity system with
-                                primary logo, submark, and favicon — all sized
-                                and ready to use.</p>
-                        </li>
-                        <li class="kit-card">
-                            <span class="kit-num" aria-hidden="true">02</span>
-                            <h2 class="kit-title">Social templates</h2>
-                            <p class="kit-desc">Instagram posts, stories, and
-                                carousels designed for listings, market stats,
-                                and personal branding.</p>
-                        </li>
-                        <li class="kit-card">
-                            <span class="kit-num" aria-hidden="true">03</span>
-                            <h2 class="kit-title">Print-ready files</h2>
-                            <p class="kit-desc">Business cards, postcards, and
-                                listing presentations that look like you hired a
-                                design firm.</p>
-                        </li>
-                    </ul>
+
+                        <div class="col-lg-4" role="listitem">
+                            <article class="bcc-kit-card">
+                                <span class="bcc-kit-num"
+                                    aria-hidden="true">01</span>
+                                <h2 class="bcc-kit-title">Logo &amp; mark</h2>
+                                <p class="bcc-kit-desc">A cohesive identity
+                                    system with primary logo, submark, and
+                                    favicon — all sized and ready to use.</p>
+                            </article>
+                        </div>
+
+                        <div class="col-lg-4" role="listitem">
+                            <article class="bcc-kit-card">
+                                <span class="bcc-kit-num"
+                                    aria-hidden="true">02</span>
+                                <h2 class="bcc-kit-title">Social templates</h2>
+                                <p class="bcc-kit-desc">Instagram posts,
+                                    stories, and carousels designed for
+                                    listings, market stats, and personal
+                                    branding.</p>
+                            </article>
+                        </div>
+
+                        <div class="col-lg-4" role="listitem">
+                            <article class="bcc-kit-card">
+                                <span class="bcc-kit-num"
+                                    aria-hidden="true">03</span>
+                                <h2 class="bcc-kit-title">Print-ready files</h2>
+                                <p class="bcc-kit-desc">Business cards,
+                                    postcards, and listing presentations that
+                                    look like you hired a design firm.</p>
+                            </article>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 
             <!-- PROOF -->
-            <section class="section-proof" aria-labelledby="proof-heading">
-                <div class="section-inner">
-                    <div class="proof-inner">
-                        <figure>
-                            <blockquote cite="#"
-                                aria-label="Customer testimonial">
-                                I've tried every Canva template out there. These
-                                are the first ones that actually look like a
-                                real brand.
-                            </blockquote>
-                            <figcaption class="proof-attr">— Real estate agent,
-                                San Diego</figcaption>
-                        </figure>
-                        <div class="proof-stat"
-                            aria-label="Social proof: over 500 agents branded">
-                            <p class="proof-stat-num"
-                                aria-hidden="true">500+</p>
-                            <p class="proof-stat-label">Agents branded</p>
+            <section class="bcc-proof"
+                aria-label="Customer testimonial and social proof">
+                <div class="container-xl">
+                    <div class="bcc-proof-inner">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-7">
+                                <figure class="mb-0">
+                                    <blockquote class="bcc-blockquote">
+                                        I've tried every Canva template out
+                                        there. These are the first ones that
+                                        actually look like a real brand.
+                                    </blockquote>
+                                    <figcaption class="bcc-proof-attr">— Real
+                                        estate agent, San Diego</figcaption>
+                                </figure>
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div class="bcc-proof-stat"
+                                    aria-label="Over 500 agents branded">
+                                    <p class="bcc-stat-num"
+                                        aria-hidden="true">500+</p>
+                                    <p class="bcc-stat-label">Agents branded</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- HOW IT WORKS -->
-            <section class="section-how" id="how" aria-labelledby="how-heading">
-                <div class="section-inner">
-                    <div class="how-inner">
-                        <div>
-                            <h2 class="how-heading" id="how-heading">As easy as
-                                it <em>looks.</em></h2>
+            <section class="bcc-how" id="how" aria-labelledby="how-heading">
+                <div class="container-xl">
+                    <div class="row g-5">
+
+                        <div class="col-lg-4">
+                            <h2 class="bcc-how-heading" id="how-heading">As easy
+                                as it <em>looks.</em></h2>
                         </div>
-                        <ol class="steps" aria-label="How to get started">
-                            <li class="step">
-                                <span class="step-num"
-                                    aria-hidden="true">01</span>
-                                <div>
-                                    <h3 class="step-title">Choose your kit</h3>
-                                    <p class="step-desc">Browse by style —
-                                        minimal, bold, coastal, or classic. Each
-                                        kit is built around a distinct visual
-                                        identity, not just a color swap.</p>
-                                </div>
-                            </li>
-                            <li class="step">
-                                <span class="step-num"
-                                    aria-hidden="true">02</span>
-                                <div>
-                                    <h3 class="step-title">Open in Canva</h3>
-                                    <p class="step-desc">One click and you're
-                                        in. Everything is editable — fonts,
-                                        colors, photos, text.</p>
-                                </div>
-                            </li>
-                            <li class="step">
-                                <span class="step-num"
-                                    aria-hidden="true">03</span>
-                                <div>
-                                    <h3 class="step-title">Make it yours</h3>
-                                    <p class="step-desc">Swap in your headshot,
-                                        your brokerage colors, your name. Done
-                                        in an afternoon. Looking like you spent
-                                        a month on it.</p>
-                                </div>
-                            </li>
-                        </ol>
+
+                        <div class="col-lg-8">
+                            <ol class="list-unstyled mb-0"
+                                aria-label="How to get started">
+                                <li class="bcc-step">
+                                    <span class="bcc-step-num"
+                                        aria-hidden="true">01</span>
+                                    <div>
+                                        <h3 class="bcc-step-title">Choose your
+                                            kit</h3>
+                                        <p class="bcc-step-desc">Browse by style
+                                            — minimal, bold, coastal, or
+                                            classic. Each kit is built around a
+                                            distinct visual identity, not just a
+                                            color swap.</p>
+                                    </div>
+                                </li>
+                                <li class="bcc-step">
+                                    <span class="bcc-step-num"
+                                        aria-hidden="true">02</span>
+                                    <div>
+                                        <h3 class="bcc-step-title">Open in
+                                            Canva</h3>
+                                        <p class="bcc-step-desc">One click and
+                                            you're in. Everything is editable —
+                                            fonts, colors, photos, text.</p>
+                                    </div>
+                                </li>
+                                <li class="bcc-step">
+                                    <span class="bcc-step-num"
+                                        aria-hidden="true">03</span>
+                                    <div>
+                                        <h3 class="bcc-step-title">Make it
+                                            yours</h3>
+                                        <p class="bcc-step-desc">Swap in your
+                                            headshot, your brokerage colors,
+                                            your name. Done in an afternoon.
+                                            Looking like you spent a month on
+                                            it.</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
             <!-- CTA -->
-            <section class="section-cta" aria-labelledby="cta-heading">
-                <div class="cta-inner">
-                    <h2 class="cta-text" id="cta-heading">Ready to look
-                        like<br><em>the agent you are?</em></h2>
-                    <a class="btn-navy"
-                        href="https://www.etsy.com/shop/bluecirclecreative"
-                        target="_blank" rel="noopener noreferrer"
-                        aria-label="Shop Blue Circle Creative on Etsy (opens in new tab)">Shop
-                        Blue Circle Creative →</a>
+            <section class="bcc-cta" aria-labelledby="cta-heading">
+                <div class="container-xl">
+                    <div
+                        class="d-flex align-items-center justify-content-between flex-wrap gap-4">
+                        <h2 class="bcc-cta-text" id="cta-heading">
+                            Ready to look like<br><em>the agent you are?</em>
+                        </h2>
+                        <a class="btn-bcc-navy"
+                            href="https://www.etsy.com/shop/bluecirclecreative"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Shop Blue Circle Creative on Etsy (opens in new tab)">
+                            Shop Blue Circle Creative →
+                        </a>
+                    </div>
                 </div>
             </section>
 
         </main>
 
         <!-- FOOTER -->
-        <footer role="contentinfo">
-            <div class="footer-inner">
-                <a class="footer-logo" href="/"
-                    aria-label="Blue Circle Creative — home">
-                    <div class="footer-circle" aria-hidden="true"></div>
-                    <span class="footer-wordmark">Creative</span>
-                </a>
-                <p class="footer-copy"><small>© 2026 Blue Circle Creative. All
-                        rights reserved.</small></p>
-                <a class="footer-etsy"
-                    href="https://www.etsy.com/shop/bluecirclecreative"
-                    target="_blank" rel="noopener noreferrer"
-                    aria-label="Visit Etsy Shop (opens in new tab)">
-                    <span class="footer-dot" aria-hidden="true"></span>Etsy Shop
-                    →
-                </a>
+        <footer class="bcc-footer" role="contentinfo">
+            <div class="container-xl">
+                <div
+                    class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                    <a class="bcc-footer-logo" href="/"
+                        aria-label="Blue Circle Creative — home">
+                        <img src="assets/images/BCC-logo.svg"
+                            alt="Blue Circle Creative" />
+                    </a>
+                    <p class="bcc-footer-copy"><small>© 2026 Blue Circle
+                            Creative. All rights reserved.</small></p>
+                    <a class="bcc-footer-etsy"
+                        href="https://www.etsy.com/shop/bluecirclecreative"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="Visit Etsy Shop (opens in new tab)">
+                        <span class="bcc-footer-dot"
+                            aria-hidden="true"></span>Etsy Shop →
+                    </a>
+                </div>
             </div>
         </footer>
+
+        <!-- Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmO/LqtI/9xvY5GSyuVeEFXRKxj8F"
+            crossorigin="anonymous"></script>
 
     </body>
 </html>
