@@ -56,10 +56,10 @@ body{font-family:var(--sans);background:var(--navy);color:var(--teal-light);-web
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 56px;background:rgba(27,43,75,0.96);backdrop-filter:blur(8px);border-bottom:0.5px solid rgba(200,216,232,0.12)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-mark{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--teal-light);display:flex;align-items:center;justify-content:center;transition:border-color 0.2s;flex-shrink:0}
-.nav-mark-inner{width:8px;height:8px;border-radius:50%;background:var(--teal)}
-.nav-logo:hover .nav-mark,.nav-logo:focus-visible .nav-mark{border-color:var(--teal)}
-.nav-wordmark{font-size:13px;font-weight:400;color:var(--teal-light);letter-spacing:0.08em;opacity:0.85}
+.nav-mark{width:20px;height:20px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:20px;color:white;transition:background 0.2s}
+.nav-mark-inner{display:none}
+.nav-logo:hover .nav-mark,.nav-logo:focus-visible .nav-mark{background:#8ec5cf}
+.nav-wordmark{font-family:var(--serif);font-size:14px;font-weight:400;color:white;letter-spacing:0.04em;opacity:1}
 .nav-links{display:flex;gap:36px;list-style:none}
 .nav-links a{font-size:10px;font-weight:500;color:var(--teal-light);text-decoration:none;letter-spacing:0.2em;opacity:0.55;transition:opacity 0.2s}
 .nav-links a:hover,.nav-links a:focus-visible{opacity:1}
@@ -90,7 +90,6 @@ section{padding:80px 56px}
 .section-h2 em{font-style:italic}
 .divider{height:0.5px;background:rgba(200,216,232,0.08)}
 
-/* PORTFOLIO */
 .portfolio{background:var(--navy);border-top:0.5px solid rgba(200,216,232,0.1)}
 .portfolio .section-h2{color:var(--ivory)}
 .portfolio .section-h2 em{color:var(--teal)}
@@ -100,10 +99,7 @@ section{padding:80px 56px}
 .page-thumb{aspect-ratio:3/4;overflow:hidden;border:0.5px solid rgba(200,216,232,0.12);position:relative;transition:border-color 0.2s,transform 0.2s}
 .page-thumb:hover{border-color:rgba(126,181,192,0.4);transform:translateY(-2px)}
 .page-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.thumb-ph{width:100%;height:100%;background:var(--navy-mid);display:flex;align-items:center;justify-content:center}
-.thumb-ph span{font-size:7px;letter-spacing:0.15em;color:rgba(200,216,232,0.2);text-align:center;padding:0 6px}
 
-/* FEATURES */
 .features{background:var(--ivory);border-top:0.5px solid rgba(27,43,75,0.1)}
 .features .section-eyebrow{color:#8B6F6F}
 .features .section-h2{color:var(--navy);margin-bottom:48px}
@@ -117,11 +113,9 @@ section{padding:80px 56px}
 .feature-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .feature-list li{font-size:13px;color:rgba(27,43,75,0.7);padding-left:18px;position:relative;line-height:1.5}
 .feature-list li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-size:11px;top:1px}
-.feature-preview{background:var(--ivory-dark);border:0.5px solid rgba(27,43,75,0.08);height:180px;display:flex;align-items:center;justify-content:center;margin-top:auto;overflow:hidden}
-.feature-preview img{width:100%;height:100%;object-fit:cover;object-position:top}
-.feature-preview-ph{font-size:9px;letter-spacing:0.2em;color:rgba(27,43,75,0.25);text-align:center;padding:16px;line-height:1.8}
+.feature-preview{overflow:hidden;margin-top:auto;border:0.5px solid rgba(27,43,75,0.08);height:200px}
+.feature-preview img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 
-/* SHOP */
 .shop{background:var(--navy);border-top:0.5px solid rgba(200,216,232,0.1)}
 .shop .section-eyebrow{color:rgba(200,216,232,0.4)}
 .shop .section-h2{color:var(--ivory)}
@@ -129,19 +123,17 @@ section{padding:80px 56px}
 .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .shop-card{background:var(--navy-mid);border:0.5px solid rgba(200,216,232,0.12);transition:transform 0.2s,border-color 0.2s}
 .shop-card:hover{transform:translateY(-3px);border-color:rgba(126,181,192,0.35)}
-.shop-card-img{height:220px;overflow:hidden;background:var(--navy-dark);display:flex;align-items:center;justify-content:center}
+.shop-card-img{height:220px;overflow:hidden;background:var(--navy-dark)}
 .shop-card-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.4s ease}
 .shop-card:hover .shop-card-img img{transform:scale(1.03)}
-.shop-card-img-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;height:100%;width:100%;background:var(--navy-dark)}
-.split-half{background:var(--navy-mid);display:flex;align-items:center;justify-content:center}
-.split-half span{font-size:8px;letter-spacing:0.15em;color:rgba(200,216,232,0.2)}
+.shop-card-img-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;height:100%}
+.shop-card-img-split img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .shop-card-body{padding:20px 22px 22px}
 .shop-card-tag{font-size:8px;font-weight:500;letter-spacing:0.2em;color:var(--teal);margin-bottom:6px}
 .shop-card-name{font-family:var(--serif);font-size:16px;color:var(--ivory);margin-bottom:8px;line-height:1.3;font-weight:400}
 .shop-card-price{font-size:14px;font-weight:500;color:var(--sand)}
 .shop-card-strike{font-size:11px;font-weight:300;color:rgba(200,216,232,0.3);text-decoration:line-through;margin-left:6px}
 
-/* ABOUT */
 .about{background:var(--ivory);border-top:0.5px solid rgba(27,43,75,0.1)}
 .about .section-eyebrow{color:#8B6F6F}
 .about .section-h2{color:var(--navy);margin-bottom:24px}
@@ -149,10 +141,9 @@ section{padding:80px 56px}
 .about-inner{display:grid;grid-template-columns:1fr 260px;gap:80px;align-items:start}
 .about-body{font-size:14px;font-weight:300;color:rgba(27,43,75,0.65);line-height:1.85;margin-bottom:16px;max-width:480px}
 .about-detail{font-size:11px;font-weight:400;color:rgba(27,43,75,0.35);letter-spacing:0.08em;margin-top:24px;line-height:2}
-.about-photo{width:220px;height:220px;border-radius:50%;background:var(--navy-mid);border:1px solid rgba(27,43,75,0.15);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.about-photo{width:220px;height:220px;border-radius:50%;background:var(--navy-mid);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .about-photo-ph{font-size:10px;letter-spacing:0.15em;color:rgba(200,216,232,0.25)}
 
-/* CONTACT */
 .contact-strip{background:var(--navy-dark);padding:56px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-top:0.5px solid rgba(200,216,232,0.08)}
 .contact-left{max-width:480px}
 .contact-h3{font-family:var(--serif);font-size:clamp(22px,2.5vw,30px);font-weight:400;color:var(--ivory);margin-bottom:10px;line-height:1.2}
@@ -161,9 +152,9 @@ section{padding:80px 56px}
 
 footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid rgba(200,216,232,0.06)}
 .footer-logo{display:flex;align-items:center;gap:10px}
-.footer-mark{width:16px;height:16px;border-radius:50%;border:1px solid rgba(200,216,232,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.footer-mark-inner{width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:0.5}
-.footer-text{font-size:11px;color:rgba(200,216,232,0.28);letter-spacing:0.05em}
+.footer-mark{width:12px;height:12px;border-radius:50%;background:var(--teal);opacity:0.5;flex-shrink:0}
+.footer-mark-inner{display:none}
+.footer-text{font-family:var(--serif);font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.03em}
 .footer-right{font-size:10px;letter-spacing:0.15em;color:rgba(200,216,232,0.2)}
 
 @media(max-width:960px){nav{padding:18px 28px}.nav-links{gap:20px}section{padding:60px 28px}.hero{padding:100px 28px 60px}.guides-grid{grid-template-columns:1fr;gap:32px}.features-grid{grid-template-columns:1fr}.shop-grid{grid-template-columns:1fr 1fr}.about-inner{grid-template-columns:1fr;gap:36px}.about-photo{width:180px;height:180px}.contact-strip{flex-direction:column;align-items:flex-start;padding:48px 28px}footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}}
@@ -177,9 +168,8 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
 
     <nav aria-label="Main navigation">
       <a href="#" class="nav-logo" aria-label="Blue Circle Creative — home">
-        <div class="nav-mark" aria-hidden="true"><div
-            class="nav-mark-inner"></div></div>
-        <span class="nav-wordmark">Blue Circle Creative</span>
+        <div class="nav-mark" aria-hidden="true"></div>
+        <span class="nav-wordmark">blue circle creative</span>
       </a>
       <ul class="nav-links" role="list">
         <li><a href="#work">WORK</a></li>
@@ -217,54 +207,74 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
         <p class="section-eyebrow" aria-hidden="true">— PORTFOLIO</p>
         <h2 class="section-h2" id="portfolio-heading">The <em>guides</em></h2>
         <div class="guides-grid">
+
           <div>
             <p class="guide-label" id="sg-label">SELLER'S GUIDE &nbsp;·&nbsp; 9
               PAGES</p>
             <div class="pages-grid" role="list" aria-labelledby="sg-label">
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>COVER</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>SELLING JOURNEY</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>MARKETING PLAN</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>CMA</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>PRICING</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>PREPARING</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>OFFERS</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>CLOSING</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>AGENT BIO</span></div></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/01_cover.png"
+                  alt="Seller's guide cover page"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/02_overview.png"
+                  alt="Your selling journey overview"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/03_marketing-plan.png"
+                  alt="Marketing plan — how I'll sell your home"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/04_cma-overview.png"
+                  alt="CMA — know your number"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/05_pricing.png"
+                  alt="Pricing strategy — the first two weeks"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/06_preparing.png" alt="Preparing your home"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/07_offers.png"
+                  alt="Offers and negotiation"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/08_closing.png"
+                  alt="Closing and what's next"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/09_agent-bio.png"
+                  alt="Agent bio — Nice to meet you"></div>
             </div>
           </div>
+
           <div>
             <p class="guide-label" id="bg-label">BUYER'S GUIDE &nbsp;·&nbsp; 9
               PAGES</p>
             <div class="pages-grid" role="list" aria-labelledby="bg-label">
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>COVER</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>BUYING JOURNEY</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>YOUR AGENT</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>FINANCING</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>MAKING AN OFFER</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>INSPECTIONS</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>ESCROW</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>MOVING</span></div></div>
-              <div class="page-thumb" role="listitem"><div
-                  class="thumb-ph"><span>AGENT BIO</span></div></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/01_b_cover.png"
+                  alt="Buyer's guide cover page"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/02_b_overview.png"
+                  alt="Your buying journey overview"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/03_b_your-agent.png"
+                  alt="How to work with your agent"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/04_b_financing.png"
+                  alt="Financing and mortgage basics"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/05_b_offers.png"
+                  alt="Making an offer"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/06_b_inspections.png"
+                  alt="Inspections and what they mean"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/07_b_escrow.png"
+                  alt="Closing and what's next"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/08_b_moving-checklist.png"
+                  alt="Your moving checklist"></div>
+              <div class="page-thumb" role="listitem"><img
+                  src="images/09_b_agent-bio.png"
+                  alt="Agent bio — Nice to meet you"></div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -290,10 +300,9 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
               <li>Matches your guide branding</li>
               <li>Print-ready file included</li>
             </ul>
-            <div class="feature-preview" role="img"
-              aria-label="For-sale sign template preview — add your image here">
-              <p class="feature-preview-ph">FOR-SALE SIGN PREVIEW<br>[ swap in
-                your image ]</p>
+            <div class="feature-preview">
+              <img src="images/sign.png"
+                alt="Customizable for-sale yard sign template — editable in Canva">
             </div>
           </article>
 
@@ -310,10 +319,9 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
               <li>Editable bio and value statements</li>
               <li>Brokerage logo placement included</li>
             </ul>
-            <div class="feature-preview" role="img"
-              aria-label="Agent bio page preview — add your image here">
-              <p class="feature-preview-ph">AGENT BIO PREVIEW<br>[ swap in your
-                image ]</p>
+            <div class="feature-preview">
+              <img src="images/09_b_agent-bio.png"
+                alt="Agent bio closing page from the buyer's guide">
             </div>
           </article>
 
@@ -329,13 +337,12 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
         <div class="shop-grid">
 
           <article class="shop-card" aria-labelledby="prod-seller">
-            <div class="shop-card-img" aria-hidden="true">
-              <span
-                style="font-size:9px;letter-spacing:0.2em;color:rgba(200,216,232,0.2);">SELLER
-                GUIDE · 9 PAGES</span>
+            <div class="shop-card-img">
+              <img src="images/01_cover.png"
+                alt="Seller's guide — coastal edition cover">
             </div>
             <div class="shop-card-body">
-              <p class="shop-card-tag">CANVA TEMPLATE</p>
+              <p class="shop-card-tag">CANVA TEMPLATE · 9 PAGES</p>
               <h3 class="shop-card-name" id="prod-seller">Seller's guide —
                 coastal edition</h3>
               <p class="shop-card-price"><span
@@ -347,13 +354,12 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
           </article>
 
           <article class="shop-card" aria-labelledby="prod-buyer">
-            <div class="shop-card-img" aria-hidden="true">
-              <span
-                style="font-size:9px;letter-spacing:0.2em;color:rgba(200,216,232,0.2);">BUYER
-                GUIDE · 9 PAGES</span>
+            <div class="shop-card-img">
+              <img src="images/01_b_cover.png"
+                alt="Buyer's guide — coastal edition cover">
             </div>
             <div class="shop-card-body">
-              <p class="shop-card-tag">CANVA TEMPLATE</p>
+              <p class="shop-card-tag">CANVA TEMPLATE · 9 PAGES</p>
               <h3 class="shop-card-name" id="prod-buyer">Buyer's guide — coastal
                 edition</h3>
               <p class="shop-card-price"><span
@@ -365,10 +371,10 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
           </article>
 
           <article class="shop-card" aria-labelledby="prod-bundle">
-            <div class="shop-card-img" aria-hidden="true">
+            <div class="shop-card-img">
               <div class="shop-card-img-split">
-                <div class="split-half"><span>SELLER</span></div>
-                <div class="split-half"><span>BUYER</span></div>
+                <img src="images/01_cover.png" alt="Seller's guide cover">
+                <img src="images/01_b_cover.png" alt="Buyer's guide cover">
               </div>
             </div>
             <div class="shop-card-body">
@@ -381,7 +387,7 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
                     aria-hidden="true">$54</span></span>
               </p>
               <a href="#" class="btn-navy"
-                aria-label="Get the Agent Bundle — both guides for $44, save $10">GET
+                aria-label="Get the Agent Bundle — both guides for $44">GET
                 BUNDLE →</a>
             </div>
           </article>
@@ -395,20 +401,23 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
             <p class="section-eyebrow" aria-hidden="true">— ABOUT</p>
             <h2 class="section-h2" id="about-heading">Design
               that<br><em>understands real estate.</em></h2>
-            <p class="about-body">Blue Circle Creative makes marketing materials
-              for real estate agents who care about presentation. Every template
-              is built with editorial standards, conversion in mind, and the
-              knowledge that your clients are making the biggest financial
-              decision of their lives.</p>
-            <p class="about-body">Designed by an agent, for agents. Based in San
-              Diego. Built for agents everywhere.</p>
+            <p class="about-body">I'm a San Diego REALTOR® and the designer
+              behind Blue Circle Creative. After years of handing clients
+              marketing materials that didn't match the quality of the homes I
+              was selling, I built my own.
+              These templates are what I actually use with my clients —
+              editorial, coastal, and built around the conversations that close
+              deals. Every page has a reason to exist.
+              If you want materials that work as hard as you do, you're in the
+              right place.</p>
+
             <p class="about-detail">SAN DIEGO, CA<br>COLDWELL BANKER
               REALTY<br>DRE #02382714</p>
           </div>
           <div>
-            <div class="about-photo" role="img"
-              aria-label="Agent photo — replace with your headshot">
-              <span class="about-photo-ph" aria-hidden="true">PHOTO</span>
+            <div class="about-photo">
+              <img src="images/headshot.png" alt="Agent headshot"
+                style="width:100%;height:100%;object-fit:cover;object-position:center top;">
             </div>
           </div>
         </div>
@@ -423,7 +432,7 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
             discuss custom templates, brand packages, or agent marketing
             materials.</p>
         </div>
-        <a href="mailto:hello@bluecirclecreative.studio" class="btn-primary">GET
+        <a href="mailto:heylanaswanson@gmail.com" class="btn-primary">GET
           IN TOUCH</a>
       </div>
 
@@ -431,9 +440,8 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
 
     <footer role="contentinfo">
       <div class="footer-logo">
-        <div class="footer-mark" aria-hidden="true"><div
-            class="footer-mark-inner"></div></div>
-        <span class="footer-text">Blue Circle Creative &nbsp;·&nbsp;
+        <div class="footer-mark" aria-hidden="true"></div>
+        <span class="footer-text">blue circle creative &nbsp;·&nbsp;
           bluecirclecreative.studio</span>
       </div>
       <span class="footer-right"
