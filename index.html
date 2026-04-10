@@ -166,7 +166,7 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
 .footer-text{font-family:var(--serif);font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.03em}
 .footer-right{font-size:10px;letter-spacing:0.15em;color:rgba(200,216,232,0.2)}
 
-@media(max-width:960px){nav{padding:18px 28px}.nav-links{gap:20px}section{padding:60px 28px}.hero{padding:100px 28px 60px}.guides-grid{grid-template-columns:1fr;gap:32px}.features-grid{grid-template-columns:1fr}.shop-grid{grid-template-columns:1fr 1fr}.about-inner{grid-template-columns:1fr;gap:36px}.about-photo{width:180px;height:180px}.contact-strip{flex-direction:column;align-items:flex-start;padding:48px 28px}footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}}
+@media(max-width:960px){nav{padding:18px 28px}.nav-links{gap:20px}section{padding:60px 28px}.hero{padding:100px 28px 60px}.guides-grid{grid-template-columns:1fr;gap:32px}.features-grid{grid-template-columns:1fr}.shop-grid{grid-template-columns:1fr 1fr}.about-inner{grid-template-columns:1fr;gap:36px}.about-photo{width:180px;height:180px}.contact-strip{flex-direction:column;align-items:flex-start;padding:48px 28px}footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}.how-steps{grid-template-columns:1fr !important}}
 @media(max-width:600px){nav{padding:16px 20px}.nav-links{display:none}section{padding:48px 20px}.hero{padding:88px 20px 48px}.shop-grid{grid-template-columns:1fr}.contact-strip{padding:40px 20px}footer{padding:20px}.feature-card{padding:24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important}html{scroll-behavior:auto}}
     </style>
@@ -231,65 +231,30 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
           <div>
             <p class="guide-label" id="sg-label">SELLER'S GUIDE &nbsp;·&nbsp; 9
               PAGES</p>
-            <div class="pages-grid" role="list" aria-labelledby="sg-label">
-              <div class="page-thumb" role="listitem"><img
-                  src="images/01_cover.png"
-                  alt="Seller's guide cover page"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/02_overview.png"
-                  alt="Your selling journey overview"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/03_marketing-plan.png"
-                  alt="Marketing plan — how I'll sell your home"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/04_cma-overview.png"
-                  alt="CMA — know your number"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/05_pricing.png"
-                  alt="Pricing strategy — the first two weeks"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/06_preparing.png" alt="Preparing your home"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/07_offers.png" alt="Offers and negotiation"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/08_closing.png"
-                  alt="Closing and what's next"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/09_agent-bio.png"
-                  alt="Agent bio — Nice to meet you"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+              <div class="page-thumb"
+                style="aspect-ratio:auto;height:280px;"><img
+                  src="images/s_mockup_01_hero.jpg"
+                  alt="Seller's guide cover mockup"></div>
+              <div class="page-thumb"
+                style="aspect-ratio:auto;height:280px;"><img
+                  src="images/s_mockup_02_spread.jpg"
+                  alt="Seller's guide interior pages spread"></div>
             </div>
           </div>
 
           <div>
             <p class="guide-label" id="bg-label">BUYER'S GUIDE &nbsp;·&nbsp; 9
               PAGES</p>
-            <div class="pages-grid" role="list" aria-labelledby="bg-label">
-              <div class="page-thumb" role="listitem"><img
-                  src="images/01_b_cover.png"
-                  alt="Buyer's guide cover page"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/02_b_overview.png"
-                  alt="Your buying journey overview"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/03_b_your-agent.png"
-                  alt="How to work with your agent"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/04_b_financing.png"
-                  alt="Financing and mortgage basics"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/05_b_offers.png" alt="Making an offer"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/06_b_inspections.png"
-                  alt="Inspections and what they mean"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/07_b_escrow.png"
-                  alt="Closing and what's next"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/08_b_moving-checklist.png"
-                  alt="Your moving checklist"></div>
-              <div class="page-thumb" role="listitem"><img
-                  src="images/09_b_agent-bio.png"
-                  alt="Agent bio — Nice to meet you"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+              <div class="page-thumb"
+                style="aspect-ratio:auto;height:280px;"><img
+                  src="images/mockup_01_hero.jpg"
+                  alt="Buyer's guide cover mockup"></div>
+              <div class="page-thumb"
+                style="aspect-ratio:auto;height:280px;"><img
+                  src="images/mockup_02_spread.jpg"
+                  alt="Buyer's guide interior pages spread"></div>
             </div>
           </div>
 
@@ -349,6 +314,85 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
 
       <div class="divider" role="separator"></div>
 
+      <section style="background:var(--navy-dark);padding:80px 56px;"
+        aria-labelledby="how-heading">
+        <p class="section-eyebrow" style="color:rgba(200,216,232,0.4);"
+          aria-hidden="true">— HOW IT WORKS</p>
+        <h2 class="section-h2" style="color:var(--ivory);margin-bottom:16px;"
+          id="how-heading">Setup in <em>minutes.</em></h2>
+        <p
+          style="font-size:13px;font-weight:300;color:rgba(200,216,232,0.45);margin-bottom:64px;letter-spacing:0.02em;">No
+          design skills needed. No special software. Just Canva — which is
+          free.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
+
+          <div
+            style="padding:40px 48px 40px 0;border-right:0.5px solid rgba(200,216,232,0.08);">
+            <span
+              style="font-family:var(--serif);font-size:72px;font-weight:400;color:rgba(126,181,192,0.12);line-height:1;display:block;margin-bottom:24px;">01</span>
+            <p
+              style="font-size:9px;font-weight:500;letter-spacing:0.25em;color:var(--teal);margin-bottom:12px;">AFTER
+              PURCHASE</p>
+            <h3
+              style="font-family:var(--serif);font-size:22px;color:var(--ivory);font-weight:400;line-height:1.2;margin-bottom:16px;">Download
+              your PDF</h3>
+            <p
+              style="font-size:13px;font-weight:300;color:rgba(200,216,232,0.5);line-height:1.8;">Etsy
+              delivers your file instantly. Open the PDF — your Canva template
+              link is inside, ready to click.</p>
+            <p
+              style="margin-top:20px;font-size:9px;font-weight:500;letter-spacing:0.15em;color:rgba(126,181,192,0.5);border:0.5px solid rgba(126,181,192,0.2);display:inline-block;padding:5px 12px;">INSTANT
+              DELIVERY</p>
+          </div>
+
+          <div
+            style="padding:40px 48px;border-right:0.5px solid rgba(200,216,232,0.08);">
+            <span
+              style="font-family:var(--serif);font-size:72px;font-weight:400;color:rgba(126,181,192,0.12);line-height:1;display:block;margin-bottom:24px;">02</span>
+            <p
+              style="font-size:9px;font-weight:500;letter-spacing:0.25em;color:var(--teal);margin-bottom:12px;">IN
+              CANVA</p>
+            <h3
+              style="font-family:var(--serif);font-size:22px;color:var(--ivory);font-weight:400;line-height:1.2;margin-bottom:16px;">Make
+              it yours</h3>
+            <p
+              style="font-size:13px;font-weight:300;color:rgba(200,216,232,0.5);line-height:1.8;">Swap
+              in your name, photo, brokerage, colors, and contact info. Every
+              placeholder is clearly labeled. Works with a free account.</p>
+            <p
+              style="margin-top:20px;font-size:9px;font-weight:500;letter-spacing:0.15em;color:rgba(126,181,192,0.5);border:0.5px solid rgba(126,181,192,0.2);display:inline-block;padding:5px 12px;">FREE
+              CANVA ACCOUNT WORKS</p>
+          </div>
+
+          <div style="padding:40px 0 40px 48px;">
+            <span
+              style="font-family:var(--serif);font-size:72px;font-weight:400;color:rgba(126,181,192,0.12);line-height:1;display:block;margin-bottom:24px;">03</span>
+            <p
+              style="font-size:9px;font-weight:500;letter-spacing:0.25em;color:var(--teal);margin-bottom:12px;">DONE</p>
+            <h3
+              style="font-family:var(--serif);font-size:22px;color:var(--ivory);font-weight:400;line-height:1.2;margin-bottom:16px;">Download
+              &amp; share</h3>
+            <p
+              style="font-size:13px;font-weight:300;color:rgba(200,216,232,0.5);line-height:1.8;">Export
+              as PDF, send to clients before your first meeting, or print it.
+              Either way — you'll look like you hired a design firm.</p>
+            <p
+              style="margin-top:20px;font-size:9px;font-weight:500;letter-spacing:0.15em;color:rgba(126,181,192,0.5);border:0.5px solid rgba(126,181,192,0.2);display:inline-block;padding:5px 12px;">PDF
+              · PRINT · DIGITAL</p>
+          </div>
+
+        </div>
+        <div
+          style="margin-top:56px;padding-top:40px;border-top:0.5px solid rgba(200,216,232,0.08);display:flex;justify-content:space-between;align-items:center;">
+          <p
+            style="font-family:var(--serif);font-size:18px;font-style:italic;color:rgba(200,216,232,0.45);">Ready
+            to show up like the agent you are?</p>
+          <a href="#shop" class="btn-primary">SHOP NOW →</a>
+        </div>
+      </section>
+
+      <div class="divider" role="separator"></div>
+
       <section class="shop" id="shop" aria-labelledby="shop-heading">
         <p class="section-eyebrow" aria-hidden="true">— SHOP</p>
         <h2 class="section-h2" id="shop-heading">Ready-to-use
@@ -359,7 +403,7 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
 
           <article class="shop-card" aria-labelledby="prod-seller">
             <div class="shop-card-img">
-              <img src="images/01_cover.png"
+              <img src="images/s_mockup_01_hero.jpg"
                 alt="Seller's guide — coastal edition cover">
             </div>
             <div class="shop-card-body">
@@ -374,14 +418,15 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
               <a
                 href="https://www.etsy.com/listing/4486205760/seller-guide-canva-template-for-real"
                 class="btn-navy" target="_blank" rel="noopener"
-                aria-label="Get the Seller's Guide Canva template on Etsy">GET
+                aria-label="Get the Seller's Guide Canva template on Etsy"
+                onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'etsy_click',product_name:'seller_guide',listing_id:'4486205760'});">GET
                 TEMPLATE →</a>
             </div>
           </article>
 
           <article class="shop-card" aria-labelledby="prod-buyer">
             <div class="shop-card-img">
-              <img src="images/01_b_cover.png"
+              <img src="images/mockup_01_hero.jpg"
                 alt="Buyer's guide — coastal edition cover">
             </div>
             <div class="shop-card-body">
@@ -396,17 +441,16 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
               <a
                 href="https://www.etsy.com/listing/4486191460/buyer-guide-canva-template-for-real"
                 class="btn-navy" target="_blank" rel="noopener"
-                aria-label="Get the Buyer's Guide Canva template on Etsy">GET
+                aria-label="Get the Buyer's Guide Canva template on Etsy"
+                onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'etsy_click',product_name:'buyer_guide',listing_id:'4486191460'});">GET
                 TEMPLATE →</a>
             </div>
           </article>
 
           <article class="shop-card" aria-labelledby="prod-bundle">
             <div class="shop-card-img">
-              <div class="shop-card-img-split">
-                <img src="images/01_cover.png" alt="Seller's guide cover">
-                <img src="images/01_b_cover.png" alt="Buyer's guide cover">
-              </div>
+              <img src="images/bundle_hero_1.jpg"
+                alt="Agent bundle — buyer and seller guides">
             </div>
             <div class="shop-card-body">
               <p class="shop-card-tag">BUNDLE — BEST VALUE</p>
@@ -420,7 +464,8 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
               <a
                 href="https://www.etsy.com/listing/4486209867/real-estate-agent-canva-bundle-buyer"
                 class="btn-navy" target="_blank" rel="noopener"
-                aria-label="Get the Agent Bundle — both guides on Etsy">GET
+                aria-label="Get the Agent Bundle — both guides on Etsy"
+                onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'etsy_click',product_name:'agent_bundle',listing_id:'4486209867'});">GET
                 BUNDLE →</a>
             </div>
           </article>
@@ -497,7 +542,9 @@ footer{background:#0a1220;padding:28px 56px;display:flex;justify-content:space-b
             onfocus="this.style.borderColor='rgba(126,181,192,0.6)'"
             onblur="this.style.borderColor='rgba(200,216,232,0.2)'"></textarea>
           <button type="submit" class="btn-primary"
-            style="width:100%;text-align:center;">SEND MESSAGE</button>
+            style="width:100%;text-align:center;"
+            onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_form_submit'});">SEND
+            MESSAGE</button>
         </form>
       </section>
 
