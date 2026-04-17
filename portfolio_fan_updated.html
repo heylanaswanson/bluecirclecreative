@@ -1,0 +1,62 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1B2B4B;--teal:#7EB5C0;--ivory:#F5F0E8;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',sans-serif}
+body{background:var(--navy);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding:48px 40px}
+.eyebrow{font-size:9px;font-weight:500;letter-spacing:0.3em;color:#8B6F6F;margin-bottom:8px}
+.h2{font-family:var(--serif);font-size:34px;font-weight:400;color:var(--ivory);margin-bottom:48px;line-height:1.1}
+.h2 em{font-style:italic;color:var(--teal)}
+.edition-tag{font-size:9px;font-weight:500;letter-spacing:0.25em;color:rgba(200,216,232,0.3);margin-bottom:18px}
+.col-label{font-size:8px;font-weight:500;letter-spacing:0.2em;color:rgba(200,216,232,0.2);margin-bottom:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:end}
+.img-cell{height:300px;overflow:hidden;border:0.5px solid rgba(200,216,232,0.1);background:#0f1a2e;transition:border-color 0.25s,transform 0.25s}
+.img-cell:hover{border-color:rgba(126,181,192,0.35);transform:translateY(-2px)}
+.img-cell img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.fan-stage{position:relative;height:300px;display:flex;align-items:flex-end;justify-content:center}
+.fc{position:absolute;bottom:0;width:148px;height:210px;border-radius:3px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.55);transform-origin:bottom center;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),box-shadow 0.4s ease;border:0.5px solid rgba(255,255,255,0.08)}
+.fc img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.fc:nth-child(1){transform:rotate(-14deg) translateX(-6px);z-index:1}
+.fc:nth-child(2){transform:rotate(-7deg) translateX(-3px);z-index:2}
+.fc:nth-child(3){transform:rotate(0deg);z-index:3}
+.fc:nth-child(4){transform:rotate(7deg) translateX(3px);z-index:2}
+.fc:nth-child(5){transform:rotate(14deg) translateX(6px);z-index:1}
+.fan-stage:hover .fc:nth-child(1){transform:rotate(-22deg) translateX(-10px);box-shadow:0 12px 40px rgba(0,0,0,0.65)}
+.fan-stage:hover .fc:nth-child(2){transform:rotate(-11deg) translateX(-5px);box-shadow:0 12px 40px rgba(0,0,0,0.58)}
+.fan-stage:hover .fc:nth-child(3){transform:rotate(0deg);box-shadow:0 16px 48px rgba(0,0,0,0.65)}
+.fan-stage:hover .fc:nth-child(4){transform:rotate(11deg) translateX(5px);box-shadow:0 12px 40px rgba(0,0,0,0.58)}
+.fan-stage:hover .fc:nth-child(5){transform:rotate(22deg) translateX(10px);box-shadow:0 12px 40px rgba(0,0,0,0.65)}
+</style>
+
+<p class="eyebrow">— PORTFOLIO</p>
+<h2 class="h2">Buyer's <em>Guides</em></h2>
+<p class="edition-tag">URBAN EDITION &nbsp;·&nbsp; 9 PAGES</p>
+
+<div class="grid">
+
+  <div>
+    <p class="col-label">COVER</p>
+    <div class="img-cell">
+      <img src="/mnt/user-data/uploads/01_b_cover.png" alt="Cover">
+    </div>
+  </div>
+
+  <div>
+    <p class="col-label">INTERIOR</p>
+    <div class="img-cell">
+      <img src="/mnt/user-data/uploads/02_b_overview.png" alt="Overview interior page">
+    </div>
+  </div>
+
+  <div>
+    <p class="col-label">PAGES</p>
+    <div class="fan-stage">
+      <div class="fc"><img src="/mnt/user-data/uploads/03_b_your-agent.png" alt="Your agent"></div>
+      <div class="fc"><img src="/mnt/user-data/uploads/04_b_financing.png"  alt="Financing"></div>
+      <div class="fc"><img src="/mnt/user-data/uploads/05_b_offers.png"     alt="Offers"></div>
+      <div class="fc"><img src="/mnt/user-data/uploads/07_b_escrow.png"     alt="Escrow"></div>
+      <div class="fc"><img src="/mnt/user-data/uploads/09_b_agent-bio.png"  alt="Agent bio"></div>
+    </div>
+  </div>
+
+</div>
