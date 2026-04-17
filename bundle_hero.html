@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bundle Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:800px;height:500px;overflow:hidden}
+body{
+  background:#0F1A2E;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'DM Sans',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* subtle radial glow behind the pair */
+body::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:400px;
+  background:radial-gradient(ellipse at center, rgba(126,181,192,0.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.bundle-stage{
+  position:relative;
+  width:520px;
+  height:360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.guide{
+  position:absolute;
+  width:210px;
+  height:296px;
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,0.75), 0 4px 16px rgba(0,0,0,0.5);
+  border:0.5px solid rgba(255,255,255,0.1);
+}
+.guide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top;
+  display:block;
+}
+
+.guide-seller{
+  transform:rotate(-6deg) translateX(-84px) translateY(6px);
+  z-index:1;
+}
+.guide-buyer{
+  transform:rotate(6deg) translateX(84px) translateY(6px);
+  z-index:1;
+}
+
+.bundle-label{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:3;
+  text-align:center;
+  pointer-events:none;
+}
+.bundle-pill{
+  background:#1B2B4B;
+  border:0.5px solid rgba(126,181,192,0.4);
+  padding:9px 20px;
+  display:inline-block;
+}
+.bundle-pill-eyebrow{
+  font-size:8px;
+  font-weight:500;
+  letter-spacing:0.28em;
+  color:#7EB5C0;
+  display:block;
+  margin-bottom:5px;
+}
+.bundle-pill-name{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:16px;
+  font-weight:400;
+  color:#F5F0E8;
+  display:block;
+  font-style:italic;
+}
+
+.bundle-save{
+  position:absolute;
+  bottom:4px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:0.2em;
+  color:rgba(245,240,232,0.5);
+  white-space:nowrap;
+}
+</style>
+</head>
+<body>
+<div class="bundle-stage">
+
+  <div class="guide guide-seller">
+    <img src="images/urban/01_cover.png" alt="Seller's guide cover">
+  </div>
+
+  <div class="guide guide-buyer">
+    <img src="images/urban/01_b_cover.png" alt="Buyer's guide cover">
+  </div>
+
+  <div class="bundle-label">
+    <div class="bundle-pill">
+      <span class="bundle-pill-eyebrow">AGENT BUNDLE</span>
+      <span class="bundle-pill-name">Buyer + Seller</span>
+    </div>
+  </div>
+
+  <span class="bundle-save">SAVE $10 &nbsp;·&nbsp; BOTH EDITIONS INCLUDED</span>
+
+</div>
+</body>
+</html>
