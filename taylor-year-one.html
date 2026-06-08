@@ -22,7 +22,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{
-    font-family:'Hanken Grotesk',sans-serif;
+    font-family:'Hanken Grotesk','Liberation Sans',sans-serif;
     background:
       radial-gradient(1200px 600px at 80% -10%, rgba(95,224,230,.10), transparent 60%),
       radial-gradient(900px 500px at -10% 110%, rgba(232,154,107,.08), transparent 55%),
@@ -42,8 +42,8 @@
   }
   .kicker::before{content:"";width:26px;height:1px;background:var(--cyan-dim);display:inline-block}
   h1{
-    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
-    font-size:clamp(34px,7vw,52px);line-height:1.02;letter-spacing:-.02em;
+    font-family:'Bricolage Grotesque','Liberation Sans',sans-serif;font-weight:800;
+    font-size:clamp(30px,7.5vw,52px);line-height:1.04;letter-spacing:-.02em;
     margin-bottom:18px;
   }
   h1 .em{color:var(--cyan)}
@@ -56,7 +56,7 @@
 
   /* Section label */
   .label{
-    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;
+    font-family:'Bricolage Grotesque','Liberation Sans',sans-serif;font-weight:700;font-size:14px;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
     margin-bottom:18px;
   }
@@ -71,7 +71,7 @@
     content:"";position:absolute;inset:0 0 auto 0;height:2px;
     background:linear-gradient(90deg,var(--cyan-dim),transparent);
   }
-  .lane h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;margin-bottom:6px;letter-spacing:-.01em}
+  .lane h3{font-family:'Bricolage Grotesque','Liberation Sans',sans-serif;font-weight:700;font-size:19px;margin-bottom:6px;letter-spacing:-.01em}
   .lane p{font-size:15px;color:var(--muted);line-height:1.5}
   .tag{
     display:inline-block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
@@ -89,14 +89,14 @@
     content:"";position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;
     background:var(--cyan);box-shadow:0 0 0 4px rgba(95,224,230,.12);
   }
-  .step .when{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
+  .step .when{font-family:'Bricolage Grotesque','Liberation Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
   .step .what{font-size:16px;color:var(--ink);margin-top:3px;line-height:1.5}
   .step .what span{color:var(--muted)}
 
   /* Facts bar */
   .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
   .fact{border:1px solid var(--line);border-radius:12px;padding:16px 14px;text-align:center;background:var(--card)}
-  .fact .big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;color:var(--cyan);letter-spacing:-.01em}
+  .fact .big{font-family:'Bricolage Grotesque','Liberation Sans',sans-serif;font-weight:800;font-size:26px;color:var(--cyan);letter-spacing:-.01em}
   .fact .sub{font-size:12.5px;color:var(--muted);letter-spacing:.04em;margin-top:4px}
 
   .closer{
@@ -108,35 +108,49 @@
   /* Resources */
   .res{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .resblock h4{
-    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;
+    font-family:'Bricolage Grotesque','Liberation Sans',sans-serif;font-weight:700;font-size:16px;
     margin-bottom:8px;letter-spacing:-.01em;color:var(--ink);
     display:flex;align-items:center;gap:8px;
   }
   .resblock h4::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:none}
   .resblock ul{list-style:none;display:flex;flex-direction:column;gap:5px}
-  .resblock li{font-size:14.5px;color:var(--muted);line-height:1.4}
+  .resblock li{font-size:14.5px;color:var(--muted);line-height:1.4;overflow-wrap:break-word}
   .resblock a{color:var(--cyan);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(95,224,230,.25)}
   .resblock a:hover{border-bottom-color:var(--cyan)}
   .resblock .note{color:var(--muted);font-weight:400}
 
-  @media (max-width:560px){
+  /* tablet / large phone */
+  @media (max-width:720px){
+    body{padding:40px 20px 56px}
+    .rule{margin:28px 0}
+  }
+  /* phone */
+  @media (max-width:600px){
+    body{padding:32px 18px 48px}
     .lanes{grid-template-columns:1fr}
+    .res{grid-template-columns:1fr;gap:20px}
+    .rule{margin:24px 0}
+    .closer{margin-top:24px}
+  }
+  /* small phone */
+  @media (max-width:430px){
     .facts{grid-template-columns:1fr}
-    .res{grid-template-columns:1fr}
+    .kicker{flex-wrap:wrap}
+    .lane{padding:16px}
   }
   @media print{
-    body{background:#fff;color:#111;padding:0}
-    .lane,.fact{border-color:#ddd;background:#fff}
-    h1 .em,.kicker,.step .when,.fact .big{color:#1a6b72}
+    body{padding:24px 30px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .lane,.step,.fact,.resblock{break-inside:avoid}
+    h1,.label{break-after:avoid}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="kicker">Year One &nbsp;·&nbsp; Happy Birthday</div>
+  <div class="kicker">Year One &nbsp;·&nbsp; Happy Birthday Taylor!</div>
   <h1>A way to get paid for the thing you're <span class="em">already good at.</span></h1>
-  <p class="lede">You've spent years building a real ear — finding tracks <b>500 people have heard</b>, mixing, and setting sound to moving image. The trick isn't becoming an influencer. It's selling the <b>work</b>, not yourself. There's a whole side of music where nobody needs to see your face — and it rewards exactly your taste: emotional, melodic electronic with vocals on top — vocal trance at the core, melodic techno close behind.</p>
+  <p class="lede">You've spent years building a real ear — finding tracks <b>1000 people have heard</b>, mixing, and setting sound to moving image. The trick isn't becoming an influencer. It's selling the <b>work</b>, not yourself. There's a whole side of music where nobody needs to see your face — and it rewards exactly your taste: emotional, melodic electronic with vocals on top — vocal trance at the core, melodic techno close behind.</p>
 
   <div class="rule"></div>
 
