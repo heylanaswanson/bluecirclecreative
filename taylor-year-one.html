@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taylor — Year One</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e1a;
+    --bg2:#0f1428;
+    --ink:#eaf2f7;
+    --muted:#8fa3b8;
+    --cyan:#5fe0e6;
+    --cyan-dim:#2c8a94;
+    --warm:#e89a6b;
+    --line:rgba(95,224,230,.16);
+    --card:rgba(255,255,255,.022);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Hanken Grotesk',sans-serif;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(95,224,230,.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(232,154,107,.08), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    line-height:1.5;
+    padding:48px 22px 64px;
+    min-height:100vh;
+  }
+  .wrap{max-width:740px;margin:0 auto}
+
+  /* Header */
+  .kicker{
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--cyan);font-weight:600;margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker::before{content:"";width:26px;height:1px;background:var(--cyan-dim);display:inline-block}
+  h1{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(34px,7vw,52px);line-height:1.02;letter-spacing:-.02em;
+    margin-bottom:18px;
+  }
+  h1 .em{color:var(--cyan)}
+  .lede{
+    font-size:clamp(17px,2.6vw,20px);color:var(--muted);max-width:60ch;
+  }
+  .lede b{color:var(--ink);font-weight:600}
+
+  .rule{height:1px;background:linear-gradient(90deg,var(--line),transparent);margin:32px 0}
+
+  /* Section label */
+  .label{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:18px;
+  }
+
+  /* Lanes */
+  .lanes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .lane{
+    border:1px solid var(--line);border-radius:14px;
+    background:var(--card);padding:18px 18px 16px;position:relative;overflow:hidden;
+  }
+  .lane::after{
+    content:"";position:absolute;inset:0 0 auto 0;height:2px;
+    background:linear-gradient(90deg,var(--cyan-dim),transparent);
+  }
+  .lane h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;margin-bottom:6px;letter-spacing:-.01em}
+  .lane p{font-size:15px;color:var(--muted);line-height:1.5}
+  .tag{
+    display:inline-block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:600;margin-top:11px;padding:3px 9px;border-radius:999px;
+  }
+  .tag.fast{color:#0a0e1a;background:var(--cyan)}
+  .tag.fit{color:var(--warm);border:1px solid rgba(232,154,107,.4)}
+  .tag.slow{color:var(--muted);border:1px solid var(--line)}
+
+  /* Timeline */
+  .tl{display:grid;grid-template-columns:1fr;gap:0;border-left:1px solid var(--line);margin-left:6px}
+  .step{position:relative;padding:0 0 20px 24px}
+  .step:last-child{padding-bottom:0}
+  .step::before{
+    content:"";position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;
+    background:var(--cyan);box-shadow:0 0 0 4px rgba(95,224,230,.12);
+  }
+  .step .when{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
+  .step .what{font-size:16px;color:var(--ink);margin-top:3px;line-height:1.5}
+  .step .what span{color:var(--muted)}
+
+  /* Facts bar */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+  .fact{border:1px solid var(--line);border-radius:12px;padding:16px 14px;text-align:center;background:var(--card)}
+  .fact .big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;color:var(--cyan);letter-spacing:-.01em}
+  .fact .sub{font-size:12.5px;color:var(--muted);letter-spacing:.04em;margin-top:4px}
+
+  .closer{
+    margin-top:30px;font-size:16.5px;color:var(--muted);line-height:1.55;
+    border-left:2px solid var(--warm);padding:4px 0 4px 16px;
+  }
+  .closer b{color:var(--ink);font-weight:600}
+
+  /* Resources */
+  .res{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .resblock h4{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;
+    margin-bottom:8px;letter-spacing:-.01em;color:var(--ink);
+    display:flex;align-items:center;gap:8px;
+  }
+  .resblock h4::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:none}
+  .resblock ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+  .resblock li{font-size:14.5px;color:var(--muted);line-height:1.4}
+  .resblock a{color:var(--cyan);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(95,224,230,.25)}
+  .resblock a:hover{border-bottom-color:var(--cyan)}
+  .resblock .note{color:var(--muted);font-weight:400}
+
+  @media (max-width:560px){
+    .lanes{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr}
+    .res{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:#fff;color:#111;padding:0}
+    .lane,.fact{border-color:#ddd;background:#fff}
+    h1 .em,.kicker,.step .when,.fact .big{color:#1a6b72}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Year One &nbsp;·&nbsp; Happy Birthday</div>
+  <h1>A way to get paid for the thing you're <span class="em">already good at.</span></h1>
+  <p class="lede">You've spent years building a real ear — finding tracks <b>500 people have heard</b>, mixing, and setting sound to moving image. The trick isn't becoming an influencer. It's selling the <b>work</b>, not yourself. There's a whole side of music where nobody needs to see your face — and it rewards exactly your taste: emotional, melodic electronic with vocals on top — vocal trance at the core, melodic techno close behind.</p>
+
+  <div class="rule"></div>
+
+  <div class="label">Four ways the money actually comes in</div>
+  <div class="lanes">
+    <div class="lane">
+      <h3>Sync licensing</h3>
+      <p>Your music placed in ads, games, film, and video. Your audiovisual instinct — sound to changing image — is literally the job. Distinctive beats generic here.</p>
+      <span class="tag fit">Your bullseye</span>
+    </div>
+    <div class="lane">
+      <h3>Game &amp; VR audio</h3>
+      <p>Score and sound-design for indie games and VR experiences. The visual-music thing you already do for fun, done for hire.</p>
+      <span class="tag fit">Your bullseye</span>
+    </div>
+    <div class="lane">
+      <h3>Sound &amp; sample packs</h3>
+      <p>Sell presets, samples, drum kits. Your crate-digging taste makes a pack stand out. Make once, sell forever.</p>
+      <span class="tag fast">Faster cash</span>
+    </div>
+    <div class="lane">
+      <h3>Ghost production</h3>
+      <p>Full tracks released under other artists' names. Anonymous by design, paid per track. The genre you love runs on this.</p>
+      <span class="tag fast">Faster cash</span>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="label">The 12-month spine</div>
+  <div class="tl">
+    <div class="step">
+      <div class="when">Months 1–2 · Plumbing</div>
+      <div class="what">Register with a PRO (BMI = free) + SoundExchange (free). Build a small catalog aimed at sync. <span>Cost: ~$0.</span></div>
+    </div>
+    <div class="step">
+      <div class="when">Months 2–5 · Get it out there</div>
+      <div class="what">Submit to sync libraries (mostly commission, not upfront). List your first 1–2 packs on Gumroad / BeatStars / Splice. <span>Cost: near $0.</span></div>
+    </div>
+    <div class="step">
+      <div class="when">Months 4–9 · Take the gigs</div>
+      <div class="what">Ghost production + direct client work via SoundBetter, Airbit, Fiverr Pro, producer Discords. <span>This is the bigger checks.</span></div>
+    </div>
+    <div class="step">
+      <div class="when">Months 9–12 · Double down</div>
+      <div class="what">Pour energy into whichever lane is actually converting. Stop spreading thin. <span>Compound the winner.</span></div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="facts">
+    <div class="fact"><div class="big">&lt;$150</div><div class="sub">total first-year cost</div></div>
+    <div class="fact"><div class="big">100%</div><div class="sub">remote · no car needed</div></div>
+    <div class="fact"><div class="big">$0</div><div class="sub">new gear — you have it</div></div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="label">Where to start — bookmark these</div>
+  <div class="res">
+    <div class="resblock">
+      <h4>Royalties (do first, free)</h4>
+      <ul>
+        <li><a href="https://www.bmi.com">bmi.com</a> <span class="note">— register as songwriter, free</span></li>
+        <li><a href="https://www.soundexchange.com">soundexchange.com</a> <span class="note">— collects the recording royalty PROs don't</span></li>
+      </ul>
+    </div>
+    <div class="resblock">
+      <h4>Sync libraries</h4>
+      <ul>
+        <li><a href="https://artlist.io">artlist.io</a> · <a href="https://www.epidemicsound.com">epidemicsound.com</a></li>
+        <li><a href="https://www.musicbed.com">musicbed.com</a> · <a href="https://www.marmosetmusic.com">marmosetmusic.com</a></li>
+        <li><a href="https://www.songtradr.com">songtradr.com</a> <span class="note">— sync marketplace</span></li>
+      </ul>
+    </div>
+    <div class="resblock">
+      <h4>Sell sounds &amp; packs</h4>
+      <ul>
+        <li><a href="https://splice.com">splice.com</a> <span class="note">— samples &amp; presets, curated</span></li>
+        <li><a href="https://gumroad.com">gumroad.com</a> <span class="note">— sell direct, free to start</span></li>
+        <li><a href="https://www.beatstars.com">beatstars.com</a> <span class="note">— beats &amp; tracks</span></li>
+      </ul>
+    </div>
+    <div class="resblock">
+      <h4>Gigs &amp; ghost production</h4>
+      <ul>
+        <li><a href="https://soundbetter.com">soundbetter.com</a> <span class="note">— pro production/mixing marketplace</span></li>
+        <li><a href="https://airbit.com">airbit.com</a> · <a href="https://www.fiverr.com">fiverr.com</a> (Pro)</li>
+        <li><span class="note">Producer Discords + r/WeAreTheMusicMakers for leads</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="closer">One honest note: sync and royalties are <b>slow to start</b> — placements take months, royalties trickle before they flow. The <b>faster money</b> is packs and ghost production. So if "change my life this year" needs to mean income this year, start there — and let sync compound quietly in the background as the long game.</p>
+
+</div>
+</body>
+</html>
